@@ -5,22 +5,22 @@ import java.io.PrintStream;
 
 public class Padre {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         String opc;
 
         try {
 
 // Llamar a la clase Hijo compilada anteriormente
 
-            Process hijo = new ProcessBuilder("java","C:\\Users\\Usuario DAM2\\Documents\\GitHub\\JorgeGonzalez_AD\\T1\\ComunicarProcesos\\src\\main\\java\\Hijo.java").start();
 
+            Process hijo = new ProcessBuilder("java","C:\\Users\\Usuario DAM2\\Documents\\GitHub\\JorgeGonzalez_AD\\T1\\ComunicarProcesos\\src\\main\\java\\Hijo.java").start();
 // Buffer para datos del proceso hijo
 
             BufferedReader br = new BufferedReader(new InputStreamReader(hijo.getInputStream()));
 
 // Stream salida
 
-            PrintStream ps = new PrintStream(hijo.getOutputStream(), true);
+            PrintStream ps = new PrintStream(hijo.getOutputStream());
 
 // Buffer que lee de consola
 
@@ -32,13 +32,8 @@ public class Padre {
 
             opc = in.readLine();
 
-            ps.println(opc);
+            ps.print(opc);
 
-// Recibir información del padre
-
-            opc = br.readLine();
-
-            System.out.println(opc) ;
 
         } catch (IOException e) {
             System.out.println("Error : " + e.getMessage());
