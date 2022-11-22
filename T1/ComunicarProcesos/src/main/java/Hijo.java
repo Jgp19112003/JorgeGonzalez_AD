@@ -1,16 +1,11 @@
-import java.io.BufferedReader;
-import java.io. IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 
-public class Hijo{
-
+public class Hijo {
 
     public static void main(String[] args) {
 
         String leer;
         int contador = 0;
-
-
         try {
 
 // BufferedReader para recibir datos del padre
@@ -24,7 +19,6 @@ public class Hijo{
                 }
             }
 
-            System.out.println("Frase en mayuscula: " + leer.toUpperCase() +  "  Tiene: " + contador + " vocales" + "  Tiene: " + leer.length() + " letras");
 
             HiloProceso hilo1 = new HiloProceso(contador,leer.length());
 
@@ -41,7 +35,7 @@ public class Hijo{
 
                 double media = (double) contador / leer.length();
 
-                System.out.println("Media: " + media);
+                System.out.println("Frase en mayuscula: " + leer.toUpperCase() +  "  Tiene: " + contador + " vocales" + "  Tiene: " + leer.length() + " letras" +" Media: " + media);
 
             } catch (InterruptedException ex) {
                 System.out.println(ex.getMessage());
@@ -51,4 +45,29 @@ public class Hijo{
             System.out.println("Error: " + e.getMessage());
         }
     }
+}
+
+class HiloProceso extends Thread {
+
+    private int vocales;
+    private int longuitud;
+    private int resultado;
+
+
+    public HiloProceso(int vocales, int longuitud) {
+        this.vocales = vocales;
+        this.longuitud = longuitud;
+    }
+
+    @Override
+    public void run() {
+
+        this.resultado = vocales / longuitud;
+
+    }
+
+    public double getResultado() {
+        return resultado;
+    }
+
 }
