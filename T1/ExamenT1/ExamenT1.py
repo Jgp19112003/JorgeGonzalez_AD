@@ -91,7 +91,7 @@ except FileNotFoundError:
         print("El fichero",fichero,"no existe!")
         
 '''
-''' Ejercicio 9
+'''
 def Consulta_Errores(fichero):
         ruta = 'C:/Users/Usuario DAM2/Documents/GitHub/JorgeGonzalez_AD/T1/ExamenT1/'+fichero
         try:            
@@ -104,27 +104,27 @@ def Consulta_Errores(fichero):
         
         
 Consulta_Errores("ficheroexam4.txt")
-
+'''
 
 def Existe_Error(fichero1,fichero2):
         ruta1 = 'C:/Users/Usuario DAM2/Documents/GitHub/JorgeGonzalez_AD/T1/ExamenT1/'+fichero1
         ruta2 = 'C:/Users/Usuario DAM2/Documents/GitHub/JorgeGonzalez_AD/T1/ExamenT1/'+fichero2        
         with open (ruta1,'r') as f:
-                directorio = f.read()
+                directorio = f.readline()
                 directorio = dict([tuple(line.split(",")) for line in directorio])
-                directorio.update
                 f.close()
                 
-        with open (ruta2,'r') as f:
-                directorio2 = f.read()
+        with open (ruta2,'r') as f2:
+                directorio2 = f2.read()
                 directorio2 = dict([tuple(line.split(",")) for line in directorio])
-                directorio2.update
-                f.close()
+                f2.close()
+                
+        
         
         
 Existe_Error("ficheroexam3.txt", "ficheroexam4.txt")
 
-
+'''
 def Borrar_Errores(fichero1, fichero2):
         ruta1  = 'C:/Users/Usuario DAM2/Documents/GitHub/JorgeGonzalez_AD/T1/ExamenT1/'+fichero1
         ruta2  = 'C:/Users/Usuario DAM2/Documents/GitHub/JorgeGonzalez_AD/T1/ExamenT1/'+fichero2
@@ -139,9 +139,7 @@ def Borrar_Errores(fichero1, fichero2):
                 f.close()
                 
         if linea1 == linea2:
+'''                                    
                                       
         
-Borrar_Errores("ficheroexam4.txt","ficheroexam4.txt")
 
-'''
-JP
